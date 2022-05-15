@@ -45,7 +45,6 @@ public class Selenium_helper {
 	 
 	 try
 	 {
-	//Selenium_helper. Selenium_helper.waitForAobjectToBeVisible(currentDriver, buttonElement,fieldName, 40);
 	 if(buttonElement!=null && buttonElement.isEnabled())
 	 {
 	 buttonElement.click();
