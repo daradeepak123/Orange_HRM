@@ -12,12 +12,12 @@ public class Login_test extends BaseClass{
 	@Test
 	public void Login_HRM()
 	{
-		driver.get(URL);
-		
-		LoginPage lp=new LoginPage(driver);
-		lp.uname(Uname);
-		lp.Password(pwd);
-		lp.login_btn();
+//		driver.get(URL);
+//		
+//		LoginPage lp=new LoginPage(driver);
+//		lp.uname(Uname);
+//		lp.Password(pwd);
+//		lp.login_btn();
 
 		logger.info("this is login page functionality");
 		logger.error("this got errored out");

@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.OrangeHRM.tests.BaseClass;
 import com.OrangeHRM.utilities.Selenium_helper;
 
 import junit.framework.Assert;
@@ -20,6 +21,7 @@ public class LoginPage {
 	public LoginPage(WebDriver rdriver) {
 		
 		ldriver=rdriver;
+		
 		PageFactory.initElements(rdriver, this);
 	}
 	
@@ -57,6 +59,25 @@ public class LoginPage {
 		Selenium_helper.clickElement(login_btn);
 	}
 	
+	public void login_fun()
+	{
+		uname(BaseClass.Uname);
+		Password(BaseClass.pwd);
+		login_btn();
+		
+	}
+	
+	public void login_fun1(String username, String Passwrd)
+	{
+		
+		uname.sendKeys(username);
+		
+		Pwd.sendKeys(Passwrd);
+		
+		Selenium_helper.clickElement(login_btn);
+		
+		
+	}
 	
 	
 	

@@ -20,6 +20,8 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
 
+import com.OrangeHRM.pageobjects.LoginPage;
+
 import Logging_Reporting.Log4j_implement;
 
 
@@ -30,11 +32,11 @@ public class BaseClass {
 	
 	
 	public String URL="https://opensource-demo.orangehrmlive.com/";
-	public String Uname="Admin";
-	public String pwd="admin123";
+	public static String Uname="Admin";
+	public static String pwd="admin123";
 	public static WebDriver driver;
 	public static Logger logger;
-	
+	public static LoginPage lp;
 	
 	@BeforeSuite
 	public void files_open()
@@ -48,6 +50,13 @@ public class BaseClass {
 		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"//Drivers//chromedriver.exe");
 		driver=new ChromeDriver();
 		driver.manage().window().maximize();
+		driver.get(URL);
+		
+		lp=new LoginPage(driver);
+		lp.login_fun1(Uname,pwd);
+//		lp.uname(Uname);
+//		lp.Password(pwd);
+//		lp.login_btn();
 
 	}
 	
