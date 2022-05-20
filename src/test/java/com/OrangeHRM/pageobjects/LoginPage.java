@@ -79,11 +79,5 @@ public class LoginPage {
 		
 	}
 	
-	
-	
-	
-	
-	
-	
 
 }
