@@ -8,6 +8,7 @@
           <include name="files_open"/>
           <include name="Login_HRM"/>
           <include name="setup"/>
+          <include name="end_suit"/>
           <include name="tear_down"/>
         </methods>
       </class> <!-- com.OrangeHRM.tests.Login_test -->

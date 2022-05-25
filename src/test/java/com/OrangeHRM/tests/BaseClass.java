@@ -23,6 +23,7 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
 
 import com.OrangeHRM.pageobjects.LoginPage;
+import com.OrangeHRM.utilities.Selenium_helper;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
@@ -32,7 +33,7 @@ import Logging_Reporting.Log4j_implement;
 
 
 
-public class BaseClass {
+public class BaseClass extends Selenium_helper{
 	
 	
 	
@@ -42,9 +43,9 @@ public class BaseClass {
 	public static WebDriver driver;
 	public static Logger logger;
 	public static LoginPage lp;
-	static ExtentReports report;
-	static ExtentSparkReporter spark;
-	static ExtentTest test;
+	public static ExtentReports report;
+	public static ExtentSparkReporter spark;
+	public static ExtentTest test;
 	
 	@BeforeSuite
 	public void files_open()
@@ -64,9 +65,15 @@ public class BaseClass {
 		driver.manage().window().maximize();
 		driver.get(URL);
 		
+		String creds[]=getdata_excel();
+		
 		lp=new LoginPage(driver);
 		report.createTest("test pass");
-		lp.login_fun1(Uname,pwd);
+		
+		
+
+		lp.login_fun1(creds[0],creds[1]);
+	//	lp.login_fun1(Uname,pwd);
 //		lp.uname(Uname);
 //		lp.Password(pwd);
 //		lp.login_btn();
@@ -85,7 +92,7 @@ public class BaseClass {
 		
 		try {
 	report.flush();
-	Desktop.getDesktop().browse(new File("C:\\Users\\Lenovo\\eclipse-workspace\\ExtentReport\\Report.html").toURI());
+	Desktop.getDesktop().browse(new File("C:\\Users\\darad\\eclipse-workspace\\Orange_HRM\\ExtentReport\\Report.html").toURI());
 		}
 		catch(Exception e)
 		{

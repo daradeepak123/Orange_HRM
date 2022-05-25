@@ -2,28 +2,28 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-05-20T07:58:10 IST" name="Default suite" finished-at="2022-05-20T07:58:21 IST" duration-ms="10632">
+  <suite started-at="2022-05-24T23:27:13 IST" name="Default suite" finished-at="2022-05-24T23:28:12 IST" duration-ms="58523">
     <groups>
     </groups>
-    <test started-at="2022-05-20T07:58:10 IST" name="Default test" finished-at="2022-05-20T07:58:21 IST" duration-ms="10632">
+    <test started-at="2022-05-24T23:27:13 IST" name="Default test" finished-at="2022-05-24T23:28:12 IST" duration-ms="58523">
       <class name="com.OrangeHRM.tests.Login_test">
-        <test-method is-config="true" signature="files_open()[pri:0, instance:com.OrangeHRM.tests.Login_test@74e52303]" started-at="2022-05-20T07:58:09 IST" name="files_open" finished-at="2022-05-20T07:58:10 IST" duration-ms="598" status="PASS">
+        <test-method is-config="true" signature="files_open()[pri:0, instance:com.OrangeHRM.tests.Login_test@6356695f]" started-at="2022-05-24T23:27:12 IST" name="files_open" finished-at="2022-05-24T23:27:13 IST" duration-ms="775" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- files_open -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.OrangeHRM.tests.Login_test@74e52303]" started-at="2022-05-20T07:58:10 IST" name="setup" finished-at="2022-05-20T07:58:20 IST" duration-ms="10427" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.OrangeHRM.tests.Login_test@6356695f]" started-at="2022-05-24T23:27:13 IST" name="setup" finished-at="2022-05-24T23:28:11 IST" duration-ms="58013" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="Login_HRM()[pri:0, instance:com.OrangeHRM.tests.Login_test@74e52303]" started-at="2022-05-20T07:58:20 IST" name="Login_HRM" finished-at="2022-05-20T07:58:21 IST" duration-ms="17" status="PASS">
+        <test-method signature="Login_HRM()[pri:0, instance:com.OrangeHRM.tests.Login_test@6356695f]" started-at="2022-05-24T23:28:11 IST" name="Login_HRM" finished-at="2022-05-24T23:28:11 IST" duration-ms="61" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Login_HRM -->
-        <test-method is-config="true" signature="tear_down()[pri:0, instance:com.OrangeHRM.tests.Login_test@74e52303]" started-at="2022-05-20T07:58:21 IST" name="tear_down" finished-at="2022-05-20T07:58:21 IST" duration-ms="164" status="PASS">
+        <test-method is-config="true" signature="tear_down()[pri:0, instance:com.OrangeHRM.tests.Login_test@6356695f]" started-at="2022-05-24T23:28:11 IST" name="tear_down" finished-at="2022-05-24T23:28:12 IST" duration-ms="388" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tear_down -->
-        <test-method is-config="true" signature="end_suit()[pri:0, instance:com.OrangeHRM.tests.Login_test@74e52303]" started-at="2022-05-20T07:58:21 IST" name="end_suit" finished-at="2022-05-20T07:58:21 IST" duration-ms="326" status="PASS">
+        <test-method is-config="true" signature="end_suit()[pri:0, instance:com.OrangeHRM.tests.Login_test@6356695f]" started-at="2022-05-24T23:28:12 IST" name="end_suit" finished-at="2022-05-24T23:28:13 IST" duration-ms="1785" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- end_suit -->
