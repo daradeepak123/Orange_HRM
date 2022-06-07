@@ -60,9 +60,13 @@ public class BaseClass extends Selenium_helper{
 	@BeforeClass
 	public void setup()
 	{
+		try
+		{
 		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"//Drivers//chromedriver.exe");
 		driver=new ChromeDriver();
 		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+
 		driver.get(URL);
 		
 		String creds[]=getdata_excel();
@@ -77,6 +81,17 @@ public class BaseClass extends Selenium_helper{
 //		lp.uname(Uname);
 //		lp.Password(pwd);
 //		lp.login_btn();
+		
+		}
+		catch(Exception e)
+		{
+			e.getStackTrace();
+			
+		}
+		
+		
+		
+		
 
 	}
 	

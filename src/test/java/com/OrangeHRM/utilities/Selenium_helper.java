@@ -1,5 +1,7 @@
 package com.OrangeHRM.utilities;
 
+import static org.testng.Assert.assertEquals;
+
 import java.io.File;
 import java.io.FileInputStream;
 
@@ -93,6 +95,44 @@ public class Selenium_helper {
 	 }
 	 }
 	
+	 
+	 public static void element_visible(WebDriver driver, WebElement ele, long time)
+	 {
+		 WebDriverWait wait;
+		 try {
+			 wait = new WebDriverWait(driver, time);
+			 wait.until(ExpectedConditions.visibilityOf(ele));
+			 }
+		 catch(Exception e)
+		 {
+			 e.printStackTrace();
+		 }
+		 
+	 }
+	 
+	 
+	 
+	 public static void send_data_textbox(WebDriver driver,WebElement ele,String data, long time)
+	 {
+		 element_visible(driver,ele,time);
+		 if (ele!=null && ele.isDisplayed())
+		 {
+			 ele.sendKeys(data);
+			 report.createTest("data passed into text box", "no issues identified with "+ele+"");
+		 }
+		 else
+		 {
+			 assertEquals(false, true, "this text box "+ele+"is not visible check the code");
+			 report.createTest("data is not passed into text box", "there is some issues identified with "+ele+"");
+				
+			 
+		 }
+		 
+		 
+	 }
+	 
+	 
+	 
 	
 	public static boolean clickElement(WebElement buttonElement) 
 	 {

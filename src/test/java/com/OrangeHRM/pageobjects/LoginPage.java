@@ -72,7 +72,9 @@ public class LoginPage {
 		
 		uname.sendKeys(username);
 		
-		Pwd.sendKeys(Passwrd);
+		//Pwd.sendKeys(Passwrd);
+		
+		Selenium_helper.send_data_textbox(ldriver,Pwd,Passwrd, 10000 );
 		
 		Selenium_helper.clickElement(login_btn);
 		
