@@ -26,7 +26,7 @@ public class LoginPage {
 	}
 	
 	
-	@FindBy(xpath="//input[@id='txtUsername']")
+	@FindBy(xpath="//input[@id='txtUsername']") 
 	WebElement uname;
 	
 	@FindBy(xpath="//input[@id='txtPassword']")
