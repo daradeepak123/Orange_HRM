@@ -14,6 +14,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.annotations.AfterClass;
@@ -29,6 +30,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
 import Logging_Reporting.Log4j_implement;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 
 
@@ -58,12 +60,15 @@ public class BaseClass extends Selenium_helper{
 	}
 	
 	@BeforeClass
-	public void setup()
+	public WebDriver setup()
 	{
 		try
 		{
 		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"//Drivers//chromedriver.exe");
-		driver=new ChromeDriver();
+		//WebDriverManager.chromedriver().setup();
+		ChromeOptions options=new ChromeOptions();
+		options.addArguments("--remote-allow-origins=*");
+		driver=new ChromeDriver(options);
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 
@@ -76,11 +81,12 @@ public class BaseClass extends Selenium_helper{
 		
 		
 
-		lp.login_fun1(creds[0],creds[1]);
+		//lp.login_fun1(creds[0],creds[1]);
 	//	lp.login_fun1(Uname,pwd);
 //		lp.uname(Uname);
 //		lp.Password(pwd);
 //		lp.login_btn();
+		
 		
 		}
 		catch(Exception e)
@@ -88,6 +94,7 @@ public class BaseClass extends Selenium_helper{
 			e.getStackTrace();
 			
 		}
+		return driver;
 		
 		
 		

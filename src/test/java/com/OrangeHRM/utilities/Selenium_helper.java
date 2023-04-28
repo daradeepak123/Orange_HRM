@@ -11,6 +11,7 @@ import org.apache.commons.io.FileUtils;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -25,12 +26,41 @@ import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
 public class Selenium_helper {
 	
+	
+
+
+
+	Selenium_helper sh;
+
 	public static WebDriver currentDriver; 
 	public static String fieldName = "fName";
 	public static ExtentReports report;
 	public static ExtentSparkReporter spark;
 	public static ExtentTest test;
+	public static JavaScriptUtils js;
 	
+	
+	
+	
+
+	public static void flash(WebElement element) {
+		String bgcolor = element.getCssValue("backgroundColor");
+		for (int i = 0; i < 15; i++) {
+			changeColor("rgb(0,200,0)", element);// 1
+			changeColor(bgcolor, element);// 2
+		}
+	}
+
+	private static void changeColor(String color, WebElement element) {
+		JavascriptExecutor js = ((JavascriptExecutor) currentDriver);
+		js.executeScript("arguments[0].style.backgroundColor = '" + color + "'", element);
+
+		try {
+			Thread.sleep(20);
+		} catch (InterruptedException e) {
+		}
+	}
+
 	
 	public void Extent_invoke()
 	{
@@ -78,6 +108,7 @@ public class Selenium_helper {
 	 {
 	 WebDriverWait wait;
 	 try {
+		
 	 wait = new WebDriverWait(driver, timeOutInSeconds);
 	 wait.until(ExpectedConditions.visibilityOf(element));
 	 }catch(Throwable t)
@@ -100,6 +131,7 @@ public class Selenium_helper {
 	 {
 		 WebDriverWait wait;
 		 try {
+			 
 			 wait = new WebDriverWait(driver, time);
 			 wait.until(ExpectedConditions.visibilityOf(ele));
 			 }
@@ -136,11 +168,11 @@ public class Selenium_helper {
 	
 	public static boolean clickElement(WebElement buttonElement) 
 	 {
-	 
 	 try
 	 {
 	 if(buttonElement!=null && buttonElement.isEnabled())
 	 {
+	 //flash(buttonElement);
 	 buttonElement.click();
 	// insertReportLine(LogStatus.PASS, "The "+fieldName+" element of "+pageName+" should be clicked ","The "+fieldName+" element of "+pageName+" element is clicked " );
 	 return true;

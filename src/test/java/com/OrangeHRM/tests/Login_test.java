@@ -4,6 +4,7 @@ import static org.testng.Assert.assertEquals;
 
 import org.testng.annotations.Test;
 
+import com.OrangeHRM.pageobjects.DashboardPage;
 import com.OrangeHRM.pageobjects.LoginPage;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.util.Assert;
@@ -13,19 +14,24 @@ public class Login_test extends BaseClass{
 	
 	
 	@Test
-	public void Login_HRM()
+	public void Login_HRM() throws InterruptedException
 	{
 //		driver.get(URL);
 //		
-//		LoginPage lp=new LoginPage(driver);
-//		lp.uname(Uname);
-//		lp.Password(pwd);
-//		lp.login_btn();
+		LoginPage lp=new LoginPage(driver);
+		lp.uname(Uname);
+		lp.Password(pwd);
+		lp.login_btn();
 
+		Thread.sleep(2000);
+		System.out.println("Login successful");
 		logger.info("this is login page functionality");
-		logger.error("this got errored out");
+		//logger.error("this got errored out");
+		DashboardPage dp=new DashboardPage(driver);
+		dp.dashboard();
 		
 		assertEquals(driver.getTitle(), "OrangeHRM");
+		System.out.println("title information added "+driver.getTitle());
 		
 
 		if (driver.getTitle().contains("OrangeHR"))
