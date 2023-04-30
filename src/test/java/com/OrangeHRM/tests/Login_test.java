@@ -12,7 +12,7 @@ import com.aventstack.extentreports.util.Assert;
 public class Login_test extends BaseClass{
 	
 	
-	
+	DashboardPage dp=new DashboardPage(driver);
 	@Test
 	public void Login_HRM() throws InterruptedException
 	{
@@ -27,7 +27,7 @@ public class Login_test extends BaseClass{
 		System.out.println("Login successful");
 		logger.info("this is login page functionality");
 		//logger.error("this got errored out");
-		DashboardPage dp=new DashboardPage(driver);
+		
 		dp.dashboard();
 		
 		assertEquals(driver.getTitle(), "OrangeHRM");
