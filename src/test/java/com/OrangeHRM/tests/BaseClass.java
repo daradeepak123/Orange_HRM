@@ -64,8 +64,8 @@ public class BaseClass extends Selenium_helper{
 	{
 		try
 		{
-		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"//Drivers//chromedriver.exe");
-		//WebDriverManager.chromedriver().setup();
+		//System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"//Drivers//chromedriver.exe");
+		WebDriverManager.chromedriver().setup();
 		ChromeOptions options=new ChromeOptions();
 		options.addArguments("--remote-allow-origins=*");
 		driver=new ChromeDriver(options);
@@ -76,7 +76,7 @@ public class BaseClass extends Selenium_helper{
 		
 		String creds[]=getdata_excel();
 		
-		lp=new LoginPage(driver);
+		//lp=new LoginPage(driver);
 		report.createTest("test pass");
 		
 		

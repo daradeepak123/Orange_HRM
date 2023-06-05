@@ -6,19 +6,20 @@ import org.testng.annotations.Test;
 
 import com.OrangeHRM.pageobjects.DashboardPage;
 import com.OrangeHRM.pageobjects.LoginPage;
+import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.util.Assert;
 
 public class Login_test extends BaseClass{
 	
-	
 	DashboardPage dp=new DashboardPage(driver);
+	LoginPage lp=new LoginPage(driver);
 	@Test
 	public void Login_HRM() throws InterruptedException
 	{
 //		driver.get(URL);
 //		
-		LoginPage lp=new LoginPage(driver);
+		
 		lp.uname(Uname);
 		lp.Password(pwd);
 		lp.login_btn();
@@ -26,7 +27,7 @@ public class Login_test extends BaseClass{
 		Thread.sleep(2000);
 		System.out.println("Login successful");
 		logger.info("this is login page functionality");
-		//logger.error("this got errored out");
+		logger.error("this got errored out");
 		
 		dp.dashboard();
 		
@@ -37,9 +38,10 @@ public class Login_test extends BaseClass{
 		if (driver.getTitle().contains("OrangeHR"))
 		{
 			System.out.println("TEst Case Pass---->");
+			logger.debug("opening webiste");
 			logger.info("login is successful");
-//			Status status=Status.PASS;
-//			test.log(status, fieldName);
+		//	Status status=Status.PASS;
+		//	test.log(status, "");
 			
 			
 			
@@ -48,12 +50,17 @@ public class Login_test extends BaseClass{
 		{
 			System.out.println("TC Fail");
 			logger.info("login failed");
-//			Status status=Status.FAIL;
-//			test.log(status, fieldName);
+			Status status=Status.FAIL;
+			test.log( status, fieldName);
 		}
 		
 		
 	}
 	
 
+	@Test
+	public void testt()
+	{
+		System.out.println("hello");
+	}
 }
