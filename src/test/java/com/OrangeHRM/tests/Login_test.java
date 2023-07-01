@@ -12,13 +12,13 @@ import com.aventstack.extentreports.util.Assert;
 
 public class Login_test extends BaseClass{
 	
-	DashboardPage dp=new DashboardPage(driver);
-	LoginPage lp=new LoginPage(driver);
+	
 	@Test
 	public void Login_HRM() throws InterruptedException
 	{
 //		driver.get(URL);
-//		
+		DashboardPage dp=new DashboardPage(driver);
+		LoginPage lp=new LoginPage(driver);
 		
 		lp.uname(Uname);
 		lp.Password(pwd);
