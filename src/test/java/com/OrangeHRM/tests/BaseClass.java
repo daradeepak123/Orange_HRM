@@ -74,7 +74,7 @@ public class BaseClass extends Selenium_helper{
 
 		driver.get(URL);
 		
-		String creds[]=getdata_excel();
+		String creds[]=getdata_excel(System.getProperty("user.dir")+"/Data/creds.xlsx","Sheet2");
 		
 		//lp=new LoginPage(driver);
 		report.createTest("test pass");

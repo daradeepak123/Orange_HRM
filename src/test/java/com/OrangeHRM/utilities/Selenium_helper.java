@@ -70,17 +70,17 @@ public class Selenium_helper {
 		report.attachReporter(spark);
 	}
 	
-	public String[] getdata_excel()
+	public String[] getdata_excel(String fileName,String SheetName)
 
 	{
 		String[] data = new String[2];
 		try
 		{
 		//System.getProperty("user.dir")+ "/src/config/config.properties"
-		File file=new File(System.getProperty("user.dir")+"/Data/creds.xlsx");
+		File file=new File(fileName);
 		FileInputStream fis=new FileInputStream(file);
 		XSSFWorkbook wb=new XSSFWorkbook(fis);
-		XSSFSheet sht=wb.getSheet("Sheet2");
+		XSSFSheet sht=wb.getSheet(SheetName);
 		
 		
 		
