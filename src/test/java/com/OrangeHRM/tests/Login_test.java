@@ -40,8 +40,8 @@ public class Login_test extends BaseClass{
 			System.out.println("TEst Case Pass---->");
 			logger.debug("opening webiste");
 			logger.info("login is successful");
-		//	Status status=Status.PASS;
-		//	test.log(status, "");
+		
+			report.createTest("Login successful");
 			
 			
 			

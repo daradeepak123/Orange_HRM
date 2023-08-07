@@ -29,6 +29,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
+import Logging_Reporting.ExtentReport;
 import Logging_Reporting.Log4j_implement;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -48,7 +49,7 @@ public class BaseClass extends Selenium_helper{
 	public static ExtentReports report;
 	public static ExtentSparkReporter spark;
 	public static ExtentTest test;
-	
+	ExtentReport e;
 	@BeforeSuite
 	public void files_open()
 	{
@@ -79,7 +80,7 @@ public class BaseClass extends Selenium_helper{
 		//lp=new LoginPage(driver);
 		report.createTest("test pass");
 		
-		
+		e.testPass(test, "login successful");
 
 		//lp.login_fun1(creds[0],creds[1]);
 	//	lp.login_fun1(Uname,pwd);
