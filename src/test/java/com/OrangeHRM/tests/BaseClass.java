@@ -4,7 +4,10 @@ package com.OrangeHRM.tests;
 
 import java.awt.Desktop;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
@@ -15,6 +18,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.annotations.AfterClass;
@@ -39,7 +43,11 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class BaseClass extends Selenium_helper{
 	
 	
-	
+	private File file;
+	private FileInputStream fi;
+	private String browser;
+	private String url;
+	private int time;
 	public String URL="https://opensource-demo.orangehrmlive.com/";
 	public static String Uname="Admin";
 	public static String pwd="admin123";
@@ -49,13 +57,22 @@ public class BaseClass extends Selenium_helper{
 	public static ExtentReports report;
 	public static ExtentSparkReporter spark;
 	public static ExtentTest test;
+	public String propertiesPathName=System.getProperty("user.dir")+"\\src\\test\\java\\com\\OrangeHRM\\testdata\\config.properties";
 	ExtentReport e;
 	@BeforeSuite
-	public void files_open()
+	public void files_open() throws IOException
 	{
 		
+		file = new File(propertiesPathName);
+		fi = new FileInputStream(file);
+		Properties prop = new Properties();
+		prop.load(fi);
+		
+		browser = prop.getProperty("Browser");
+		url = prop.getProperty("URL");
+		time = Integer.parseInt(prop.getProperty("ImplicitWait"));
 		report = new ExtentReports();
-		spark = new ExtentSparkReporter("C:\\Users\\darad\\eclipse-workspace\\Orange_HRM\\ExtentReport\\Report.html");
+		spark = new ExtentSparkReporter(System.getProperty("user.dir")+"\\Orange_HRM\\ExtentReport\\Report.html");
 		report.attachReporter(spark);
 		logger=LogManager.getLogger(Log4j_implement.class);
 	}
@@ -71,9 +88,9 @@ public class BaseClass extends Selenium_helper{
 		options.addArguments("--remote-allow-origins=*");
 		driver=new ChromeDriver(options);
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(time, TimeUnit.SECONDS);
 
-		driver.get(URL);
+		driver.get(url);
 		
 		String creds[]=getdata_excel(System.getProperty("user.dir")+"/Data/creds.xlsx","Sheet2");
 		
@@ -106,7 +123,7 @@ public class BaseClass extends Selenium_helper{
 	@AfterClass
 	public void tear_down()
 	{
-		driver.quit();
+		driver.close();
 	}
 	
 	@AfterSuite
