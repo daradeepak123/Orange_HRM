@@ -26,8 +26,10 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
 
 import com.OrangeHRM.pageobjects.LoginPage;
+import com.OrangeHRM.utilities.BrowserChoice;
 import com.OrangeHRM.utilities.Selenium_helper;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -42,7 +44,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseClass extends Selenium_helper{
 	
-	
+	public BrowserChoice bc=new BrowserChoice();
 	private File file;
 	private FileInputStream fi;
 	private String browser;
@@ -82,11 +84,8 @@ public class BaseClass extends Selenium_helper{
 	{
 		try
 		{
-		//System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"//Drivers//chromedriver.exe");
-		WebDriverManager.chromedriver().setup();
-		ChromeOptions options=new ChromeOptions();
-		options.addArguments("--remote-allow-origins=*");
-		driver=new ChromeDriver(options);
+				
+		driver=bc.browser();	
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(time, TimeUnit.SECONDS);
 
@@ -118,6 +117,12 @@ public class BaseClass extends Selenium_helper{
 		
 		
 
+	}
+	
+	@Test
+	public void h()
+	{
+		
 	}
 	
 	@AfterClass

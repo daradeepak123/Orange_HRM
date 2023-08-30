@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite parallel="methods" thread-count="0" name="Suite">
+  <test thread-count="0" parallel="tests" name="Test">
+    <classes>
+      <class name="com.OrangeHRM.tests.Login_test"/>
+      <class name="com.OrangeHRM.tests.LoginNewTest"/>
+      <class name="Logging_Reporting.ExtentReport"/>
+      <class name="com.OrangeHRM.tests.Get_data"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
