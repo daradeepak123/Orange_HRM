@@ -20,9 +20,12 @@ public class Login_test extends BaseClass{
 		DashboardPage dp=new DashboardPage(driver);
 		LoginPage lp=new LoginPage(driver);
 		
-		lp.uname(Uname);
-		lp.Password(pwd);
+		lp.uname(UnameText);
+		lp.Password(pwdText);
 		lp.login_btn();
+		
+		//lp.login_fun();
+		
 
 		Thread.sleep(2000);
 		System.out.println("Login successful");

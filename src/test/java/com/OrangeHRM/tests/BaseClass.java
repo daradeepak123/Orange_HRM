@@ -49,8 +49,8 @@ public class BaseClass extends Selenium_helper{
 	private String url;
 	private int time;
 	public String URL="https://opensource-demo.orangehrmlive.com/";
-	public static String Uname="Admin";
-	public static String pwd="admin123";
+	public static String UnameText="Admin";
+	public static String pwdText="admin123";
 	public static WebDriver driver;
 	public static Logger logger;
 	public static LoginPage lp;
@@ -68,7 +68,7 @@ public class BaseClass extends Selenium_helper{
 		Properties prop = new Properties();
 		prop.load(fi);
 		
-		browser = prop.getProperty("Browser");
+		browser = prop.getProperty("browser");
 		url = prop.getProperty("URL");
 		time = Integer.parseInt(prop.getProperty("ImplicitWait"));
 		report = new ExtentReports();

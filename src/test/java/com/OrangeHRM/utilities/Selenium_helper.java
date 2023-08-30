@@ -154,6 +154,7 @@ public class Selenium_helper {
 		 element_visible(driver,ele,time);
 		 if (ele!=null && ele.isDisplayed())
 		 {
+			 ele.clear();
 			 ele.sendKeys(data);
 			 //report.createTest("data passed into text box", "no issues identified with ");
 			 log.info("Passed the data successfully");

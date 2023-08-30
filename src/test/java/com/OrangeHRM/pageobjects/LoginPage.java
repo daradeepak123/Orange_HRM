@@ -62,8 +62,8 @@ public class LoginPage {
 
 	public void login_fun()
 	{
-		uname(BaseClass.Uname);
-		Password(BaseClass.pwd);
+		uname(BaseClass.UnameText);
+		Password(BaseClass.pwdText);
 		login_btn();
 
 	}
